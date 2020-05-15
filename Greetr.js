@@ -1,5 +1,4 @@
 (function (global, $) {
-
   // 'new' an object
   var Greeter = function (firstName, lastName, language) {
     return new Greeter.init(firstName, lastName, language);
@@ -28,7 +27,6 @@
 
   // prototype holds methods (to save memory space)
   Greeter.prototype = {
-
     // 'this' refers to the calling object at execution time
     fullName: function () {
       return this.firstName + " " + this.lastName;
@@ -47,7 +45,6 @@
       return greetings[this.language] + " " + this.firstName + "!";
     },
 
-
     formalGreeting: function () {
       return formalGreeting[this.language] + ", " + this.fullName();
     },
@@ -55,7 +52,7 @@
     greet: function (formal) {
       var msg;
 
-      // if undefined or null it will be coersed to 'false' 
+      // if undefined or null it will be coersed to 'false'
       if (formal) {
         msg = this.formalGreeting();
       } else {
@@ -81,7 +78,6 @@
     },
 
     setLang: function (lang) {
-
       // set the language
       this.language = lang;
 
@@ -117,13 +113,15 @@
     },
   };
 
-  // actual object is created here, allowing us to 'new' an object without calling 'new' 
+  // actual object is created here, allowing us to 'new' an object without calling 'new'
   Greeter.init = function (firstName, lastName, language) {
     var self = this;
 
     self.firstName = firstName || "";
     self.lastName = lastName || "";
     self.language = language || "en";
+
+    self.validate();
   };
 
   // trick borrowed from jQuery so we don't have to use the 'new' keyword
