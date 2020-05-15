@@ -88,7 +88,7 @@
       return this;
     },
 
-    HTMLGreering: function (selector, formal) {
+    HTMLGreeting: function (selector, formal) {
       if (!$) {
         throw "jQuery not loaded";
       }
@@ -127,6 +127,6 @@
   // trick borrowed from jQuery so we don't have to use the 'new' keyword
   Greeter.init.prototype = Greeter.prototype;
 
-  // attach our Greetr to the global object, and provide a shorthand '$G' for ease our poor fingers
-  global.Greeter = global.$G = Greeter;
+  // attach our Greetr to the global object, and provide a shorthand 'G$' for ease our poor fingers
+  global.Greeter = global.G$ = Greeter;
 })(window, jQuery);
